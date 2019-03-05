@@ -114,7 +114,7 @@ export default class Arithmetic {
                 const symL = this.operand.pop();
                 const symR = this.operand.pop();
                 const cacheSym = this.operator.pop();
-                resualt = this.selectCalculationRule(symL, symR, cacheSym);
+                resualt = Arithmetic.selectCalculationRule(symL, symR, cacheSym);
             }
             this.operand.push(resualt);
         }
@@ -131,7 +131,7 @@ export default class Arithmetic {
     calculateMultiOrDivis(sym) {
         const symL = this.operand.pop();
         const symR = this.operand.pop();
-        this.operand.push(this.selectCalculationRule(symL, symR, sym));
+        this.operand.push(Arithmetic.selectCalculationRule(symL, symR, sym));
         return undefined;
     }
     /**
@@ -140,7 +140,7 @@ export default class Arithmetic {
      * @param {String || Number} symR
      * @param {String} sym
      */
-    selectCalculationRule(symL, symR, sym) {
+    static selectCalculationRule(symL, symR, sym) {
         switch (sym) {
             case '*':
                 return Arithmetic.multiplication(symL, symR);
