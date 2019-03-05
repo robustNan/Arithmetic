@@ -1,0 +1,31 @@
+{
+  "name": "arithmetic",
+  "version": "1.0.0",
+  "description": "javascript arithmetic",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robustNan/Arithmetic.git"
+  },
+  "keywords": [
+    "arithmetic",
+    "calculate"
+  ],
+  "author": "John Cooper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robustNan/Arithmetic/issues"
+  },
+  "homepage": "https://github.com/robustNan/Arithmetic#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
