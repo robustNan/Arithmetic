@@ -4,6 +4,7 @@
   "description": "javascript arithmetic",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --devtools source-map",
     "dev": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

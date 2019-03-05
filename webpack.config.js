@@ -14,6 +14,9 @@ module.exports = {
         arithmetic: './src/script/arithmetic.js'
     },
     output: {
+        filename: './script/[name].bundle.js',
+        library: 'arithmetic',
+        libraryTarget: "umd",
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
