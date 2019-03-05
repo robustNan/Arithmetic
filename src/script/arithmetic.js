@@ -57,10 +57,10 @@ export default class Arithmetic {
                     this.calculateMultiOrDivis(this.tempSym);
                     this.tempSym = '';
                 }
-                let cacheSym = this.operator.peek();
+                let peekSym = this.operator.peek();
                 const nextChar = expression[i - 1];
                 const isSymbol = /[\+|\-|\*|\/]/;
-                if (cacheSym) {
+                if (peekSym) {
                     if (this.tempNum) {
                         if (isSymbol.test(nextChar) && '-' == char) {
                             this.operand.push(char + this.tempNum);
@@ -70,7 +70,7 @@ export default class Arithmetic {
                         }
                         this.tempNum = '';
                     }
-                    switch (Arithmetic.priorityCompare(cacheSym, char)) {
+                    switch (Arithmetic.priorityCompare(peekSym, char)) {
                         case 2:
                             this.tempSym = this.operator.pop();
                             break;
@@ -80,7 +80,7 @@ export default class Arithmetic {
                         default:
                             break;
                     }
-                } else if (!cacheSym && this.tempNum) {
+                } else if (!peekSym && this.tempNum) {
                     if (isSymbol.test(nextChar) && '-' == char) {
                         this.operand.push(char + this.tempNum);
                         char = '';
