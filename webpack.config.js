@@ -8,15 +8,12 @@ module.exports = {
         host: 'localhost',
         port: 8888
     },
-    devtool: 'inline-source-map',
     entry: {
-        index: './src/script/index.js',
-        arithmetic: './src/script/arithmetic.js'
+        index: './src/script/index.js'
     },
+    mode: 'development',
     output: {
         filename: './script/[name].bundle.js',
-        library: 'arithmetic',
-        libraryTarget: "umd",
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
@@ -24,8 +21,6 @@ module.exports = {
             favicon: false,
             template: './src/index.html'
         }),
-        new CleanWebpackPlugin({
-            path: './dist'
-        })
+        new CleanWebpackPlugin(['dist'])
     ]
 };
