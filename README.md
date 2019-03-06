@@ -1,6 +1,3 @@
-# Arithmetic
-JavaScript Arithmetic
-
 # 安装环境
 npm install
 
