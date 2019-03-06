@@ -1,6 +1,6 @@
 import Stack from './stack';
 
-export default class Arithmetic {
+export class Mian {
     constructor() {
         this.operand = new Stack();
         this.operator = new Stack();
@@ -70,7 +70,7 @@ export default class Arithmetic {
                         }
                         this.tempNum = '';
                     }
-                    switch (Arithmetic.priorityCompare(peekSym, char)) {
+                    switch (Main.priorityCompare(peekSym, char)) {
                         case 2:
                             this.tempSym = this.operator.pop();
                             break;
@@ -104,7 +104,7 @@ export default class Arithmetic {
                 const symL = resualt;
                 const symR = this.operand.pop();
                 const cacheSym = this.operator.pop();
-                resualt = '+' == cacheSym ? Arithmetic.addition(symL, symR) : Arithmetic.subtraction(symL,
+                resualt = '+' == cacheSym ? Main.addition(symL, symR) : Main.subtraction(symL,
                     symR);
             } else {
                 if (1 == this.operand.getLength()) {
@@ -114,7 +114,7 @@ export default class Arithmetic {
                 const symL = this.operand.pop();
                 const symR = this.operand.pop();
                 const cacheSym = this.operator.pop();
-                resualt = Arithmetic.selectCalculationRule(symL, symR, cacheSym);
+                resualt = Main.selectCalculationRule(symL, symR, cacheSym);
             }
             this.operand.push(resualt);
         }
@@ -131,7 +131,7 @@ export default class Arithmetic {
     calculateMultiOrDivis(sym) {
         const symL = this.operand.pop();
         const symR = this.operand.pop();
-        this.operand.push(Arithmetic.selectCalculationRule(symL, symR, sym));
+        this.operand.push(Main.selectCalculationRule(symL, symR, sym));
         return undefined;
     }
     /**
@@ -143,13 +143,13 @@ export default class Arithmetic {
     static selectCalculationRule(symL, symR, sym) {
         switch (sym) {
             case '*':
-                return Arithmetic.multiplication(symL, symR);
+                return Main.multiplication(symL, symR);
             case '/':
-                return Arithmetic.division(symL, symR);
+                return Main.division(symL, symR);
             case '+':
-                return Arithmetic.addition(symL, symR);
+                return Main.addition(symL, symR);
             default:
-                return Arithmetic.subtraction(symL, symR);
+                return Main.subtraction(symL, symR);
         }
     }
     /**
