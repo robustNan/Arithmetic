@@ -1,8 +1,8 @@
 const btn = document.querySelector('#btn');
 const input = document.querySelector('#input');
 const output = document.querySelector('#output');
-const arith = new arithmetic.Main();
+const math = new arithmetic.Math();
 
 btn.addEventListener('click', () => {
-    output.value = arith.calculate(input.value);
+    output.value = math.calculate(input.value);
 }, false);
