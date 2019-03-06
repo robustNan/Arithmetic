@@ -1,12 +1,14 @@
-# 安装环境
+## 安装环境
 npm install
 
-# 启动环境
+## 启动环境
 npm run dev
 
-# 打包代码
-npm run build
+## 打包代码
+>>npm run build
 
-# 如何使用
+## 如何使用
+```javascript
 const arith = new arithmetic.Main();
-﹉arith.calculate('1+(2+3)*4'); // 返回 13
+arith.calculate('1+(2+3)*4'); // 返回 13
+```
