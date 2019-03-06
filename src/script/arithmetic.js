@@ -1,6 +1,6 @@
 import Stack from './stack';
 
-export class Mian {
+export class Main {
     constructor() {
         this.operand = new Stack();
         this.operator = new Stack();
