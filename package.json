@@ -2,8 +2,8 @@
   "name": "arithmetic",
   "version": "1.0.0",
   "description": "javascript arithmetic",
-  "main": "index.js",
   "scripts": {
+    "build": "webpack --devtool source-map",
     "dev": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
