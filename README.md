@@ -13,5 +13,5 @@ npm run build
 ## 如何使用
 ```javascript
 const arith = new arithmetic.Main();
-arith.calculate('1+(2+3)*4'); // 返回 13
+arith.calculate('1+(2+3)*4'); // 返回 21
 ```
