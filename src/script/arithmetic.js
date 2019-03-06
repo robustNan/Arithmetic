@@ -1,6 +1,6 @@
 import Stack from './stack';
 
-export class Main {
+export class Math {
     constructor() {
         this.operand = new Stack();
         this.operator = new Stack();
@@ -70,7 +70,7 @@ export class Main {
                         }
                         this.tempNum = '';
                     }
-                    switch (Main.priorityCompare(peekSym, char)) {
+                    switch (Math.priorityCompare(peekSym, char)) {
                         case 2:
                             this.tempSym = this.operator.pop();
                             break;
@@ -104,8 +104,7 @@ export class Main {
                 const symL = resualt;
                 const symR = this.operand.pop();
                 const cacheSym = this.operator.pop();
-                resualt = '+' == cacheSym ? Main.addition(symL, symR) : Main.subtraction(symL,
-                    symR);
+                resualt = '+' == cacheSym ? Math.addition(symL, symR) : Math.subtraction(symL, symR);
             } else {
                 if (1 == this.operand.getLength()) {
                     resualt = parseFloat(this.operand.pop());
@@ -114,7 +113,7 @@ export class Main {
                 const symL = this.operand.pop();
                 const symR = this.operand.pop();
                 const cacheSym = this.operator.pop();
-                resualt = Main.selectCalculationRule(symL, symR, cacheSym);
+                resualt = Math.selectCalculationRule(symL, symR, cacheSym);
             }
             this.operand.push(resualt);
         }
@@ -131,7 +130,7 @@ export class Main {
     calculateMultiOrDivis(sym) {
         const symL = this.operand.pop();
         const symR = this.operand.pop();
-        this.operand.push(Main.selectCalculationRule(symL, symR, sym));
+        this.operand.push(Math.selectCalculationRule(symL, symR, sym));
         return undefined;
     }
     /**
@@ -143,13 +142,13 @@ export class Main {
     static selectCalculationRule(symL, symR, sym) {
         switch (sym) {
             case '*':
-                return Main.multiplication(symL, symR);
+                return Math.multiplication(symL, symR);
             case '/':
-                return Main.division(symL, symR);
+                return Math.division(symL, symR);
             case '+':
-                return Main.addition(symL, symR);
+                return Math.addition(symL, symR);
             default:
-                return Main.subtraction(symL, symR);
+                return Math.subtraction(symL, symR);
         }
     }
     /**
