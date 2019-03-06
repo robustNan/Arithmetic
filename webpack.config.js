@@ -9,16 +9,20 @@ module.exports = {
         port: 8888
     },
     entry: {
+        arithmetic: './src/script/arithmetic.js',
         index: './src/script/index.js'
     },
     mode: 'development',
     output: {
-        filename: './script/[name].bundle.js',
+        filename: './script/[name].js',
+        library: 'arithmetic',
+        libraryTarget: 'umd',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
         new HtmlWebpackPlugin({
             favicon: false,
+            inject: true,
             template: './src/index.html'
         }),
         new CleanWebpackPlugin(['dist'])
