@@ -1,0 +1,57 @@
+bkg-gradient = linear-gradient(#CDDC39, #8BC34A)
+btn-gradient = linear-gradient(#00BCD4, #2196F3)
+shadow = 0px .03rem .04rem #0D5A10
+radius = .08rem
+
+body, p
+  margin 0
+
+html
+  font-size 50px
+
+body
+  font-family Arial, Helvetica, sans-serif
+  font-size .24rem
+  background #585858
+
+  .contain
+    margin 2rem auto 0 auto
+    height 3rem
+    width 6rem
+    background bkg-gradient
+    border-radius .1rem
+    box-shadow 0px .04rem .1rem #000
+    box-sizing border-box
+    padding .2rem
+    text-align center
+
+    p
+      font-size .6rem
+      color #FFFED8
+      height 1.2rem
+      line-height 1.2rem
+      text-align right
+      text-shadow shadow
+
+    input
+      display block
+      width 100%
+      outline none
+      border .02rem solid #FFEB3B
+      border-radius radius
+      box-sizing border-box
+      color #5D5D5D
+      text-align center
+
+      &:focus
+        border-color #8BC34A
+        box-shadow inset 0px .01rem .04rem #808080
+
+    span
+      display inline-block
+      background btn-gradient
+      margin-top .25rem
+      padding .06rem .2rem
+      border-radius radius
+      color #FFF
+      box-shadow shadow
