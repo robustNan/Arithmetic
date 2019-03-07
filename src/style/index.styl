@@ -1,7 +1,28 @@
-bkg-gradient = linear-gradient(#CDDC39, #8BC34A)
-btn-gradient = linear-gradient(#00BCD4, #2196F3)
 shadow = 0px .03rem .04rem #0D5A10
 radius = .08rem
+
+vender(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
+
+border-radius()
+  vender('border-radius', arguments)
+
+box-shadow(args...)
+  vender('box-shadow', args)
+
+text-shadow()
+  vender('text-shadow', arguments)
+
+gradient(bool)
+  bkg-gradient = linear-gradient(#CDDC39, #8BC34A)
+  btn-gradient = linear-gradient(#00BCD4, #2196F3)
+
+  if (bool)
+    background btn-gradient
+  else
+    background bkg-gradient
 
 body, p
   margin 0
@@ -18,12 +39,10 @@ body
     margin 2rem auto 0 auto
     height 3rem
     width 6rem
-    background bkg-gradient
+    gradient(false)
     border-radius .1rem
     box-shadow 0px .04rem .1rem #000
-    box-sizing border-box
     padding .2rem
-    text-align center
 
     p
       font-size .6rem
@@ -33,25 +52,28 @@ body
       text-align right
       text-shadow shadow
 
+    input, ^[1]
+      text-align center
+      box-sizing border-box
+
     input
       display block
       width 100%
       outline none
       border .02rem solid #FFEB3B
-      border-radius radius
-      box-sizing border-box
       color #5D5D5D
-      text-align center
 
       &:focus
         border-color #8BC34A
         box-shadow inset 0px .01rem .04rem #808080
 
+    input, span
+      border-radius radius
+
     span
       display inline-block
-      background btn-gradient
+      gradient(true)
       margin-top .25rem
       padding .06rem .2rem
-      border-radius radius
       color #FFF
       box-shadow shadow
