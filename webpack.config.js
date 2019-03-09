@@ -1,6 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
@@ -17,7 +17,12 @@ module.exports = {
     module: {
         rules: [{
             test: /\.styl$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader']
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options:{
+                    publicPath: './dist/css'
+                }
+            }, 'css-loader']
         }]
     },
     output: {
@@ -31,9 +36,6 @@ module.exports = {
             favicon: false,
             inject: true,
             template: './src/index.html'
-        }),
-        new MiniCssExtractPlugin({
-            filename: './style/[name].css'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
